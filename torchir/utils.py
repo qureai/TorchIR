@@ -208,9 +208,9 @@ def rotation_matrix_eff(x, axis=0, ndim=2):
     """
     For 3D axis = x: 2, y: 1, z: 0.
     """
-    assert (
-        x.ndim == 2 and x.shape[-1] == 1
-    ), "Input should be a tensor of (m, 1), where m is number of instances."
+    # assert (
+    #     x.ndim == 2 and x.shape[-1] == 1
+    # ), "Input should be a tensor of (m, 1), where m is number of instances."
     assert ndim in (2, 3), "Only 2D and 3D implemented."
     dtype, device = x.dtype, x.device
     T = torch.eye(ndim, dtype=dtype, device=device)[None].repeat(len(x), 1, 1)

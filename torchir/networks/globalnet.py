@@ -21,8 +21,8 @@ class ConvBlock(nn.Sequential):
         kernel_size=3,
         downsample=(False,),
         af=nn.ELU,
-        ndim=2,
-    ):
+        ndim=3,
+    ):  
         Conv = (nn.Conv2d, nn.Conv3d)[ndim - 2]
         AvgPool = (nn.AvgPool2d, nn.AvgPool3d)[ndim - 2]
         padding = kernel_size // 2
@@ -72,6 +72,7 @@ class AIRNet(nn.Module):
                 kernel_size=kernel_size,
                 downsample=(2,) * ndim,
                 af=AF,
+                ndim= 3
             )
         ]  # TODO: clean this hacky stuff
         for i in range(1, num_conv_layers):
@@ -85,6 +86,7 @@ class AIRNet(nn.Module):
                     kernel_size=kernel_size,
                     downsample=downsample,
                     af=AF,
+                    ndim=3
                 )
             )
         conv_layers.append(AdaptiveAvgPool(1))

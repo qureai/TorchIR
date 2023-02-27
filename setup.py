@@ -1,8 +1,9 @@
-from distutils.core import setup
+# from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name="torchir",
-    packages=["torchir"],  # Chose the same as "name"
+    packages=find_packages(), # Chose the same as "name"
     version="0.1",
     license="MIT",
     description="Pytorch Image Registration Library",

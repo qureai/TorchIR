@@ -172,7 +172,6 @@ class AffineTransformer(Transformer):
         and 1 for rotation
         """
         translation, rotation, scale, shear = parameters
-
         if self.ndim == 2:
             rot_mat = rotation_matrix_eff(rotation, ndim=self.ndim)
         elif self.ndim == 3:
